@@ -1,0 +1,237 @@
+2025-12-05 02:33:36.896 | INFO     | [utils.logger:setup_logger:52] | Logger initialized -> level=INFO, dir=./logs, rotation=200 MB, retention=30 days
+2025-12-05 02:33:36.896 | INFO     | [__main__:main:21] | ==== Nexuts Service Starting ====
+2025-12-05 02:33:36.898 | INFO     | [nexuts:__init__:20] | Nexuts Config : {'snapshot_dir': '/data/nexuts/snapshot_dir', 'snapshot_interval_seconds': 30, 'WalManager_dir': '/data/nexuts/wal_dir', 'db_path': '/data/info_center.db', 'sentry_heartbeat_cycle': 5, 'resume': 1, 'load_balancing_weights': {'prealloc': 0.3, 'inflight': 0.7}}
+2025-12-05 02:33:36.898 | INFO     | [persistence.snap_manager:load_snapshot:181] | Loading snapshot snapshot_data [{'id': 0, 'key': None, 'value': None, 'decode_string': None, 'children': [], 'version': 0}]
+2025-12-05 02:33:36.900 | INFO     | [nexuts:_recover_from_db:265] | [Recovery] 恢复了 1 个 sentry 节点
+2025-12-05 02:33:36.904 | INFO     | [Sentry_manager.Sentry:_ping:58] | [Heartbeat] http://127.0.0.1:9992/v1/health FAILED ❌: Failed to perform, curl: (7) Failed to connect to 127.0.0.1 port 9992 after 0 ms: Could not connect to server. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2025-12-05 02:34:06.899 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:4 freeze_finish_version:1
+2025-12-05 02:34:35.947 | INFO     | [utils.logger:setup_logger:52] | Logger initialized -> level=INFO, dir=./logs, rotation=200 MB, retention=30 days
+2025-12-05 02:34:35.948 | INFO     | [__main__:main:21] | ==== Nexuts Service Starting ====
+2025-12-05 02:34:35.949 | INFO     | [nexuts:__init__:20] | Nexuts Config : {'snapshot_dir': '/data/nexuts/snapshot_dir', 'snapshot_interval_seconds': 30, 'WalManager_dir': '/data/nexuts/wal_dir', 'db_path': '/data/info_center.db', 'sentry_heartbeat_cycle': 5, 'resume': 1, 'load_balancing_weights': {'prealloc': 0.3, 'inflight': 0.7}}
+2025-12-05 02:34:35.950 | INFO     | [persistence.snap_manager:load_snapshot:181] | Loading snapshot snapshot_data [{'id': 0, 'key': None, 'value': None, 'decode_string': None, 'children': [], 'version': 0}]
+2025-12-05 02:34:35.951 | INFO     | [nexuts:_recover_from_db:265] | [Recovery] 恢复了 1 个 sentry 节点
+2025-12-05 02:34:35.955 | INFO     | [Sentry_manager.Sentry:_ping:58] | [Heartbeat] http://127.0.0.1:9992/v1/health FAILED ❌: Failed to perform, curl: (7) Failed to connect to 127.0.0.1 port 9992 after 0 ms: Could not connect to server. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2025-12-05 02:34:45.236 | INFO     | [nexuts:register_instance:207] | [Register] sentry=test_sentry, instance=prefill_001, type=prefill 注册成功
+2025-12-05 02:34:45.239 | INFO     | [nexuts:register_instance:207] | [Register] sentry=test_sentry, instance=prefill_002, type=prefill 注册成功
+2025-12-05 02:34:45.242 | INFO     | [nexuts:register_instance:207] | [Register] sentry=test_sentry, instance=prefill_003, type=prefill 注册成功
+2025-12-05 02:34:47.244 | INFO     | [Api.api:get_best_instance:72] | instances_status: {'prefill_001': True, 'prefill_002': True, 'prefill_003': True}
+2025-12-05 02:34:47.244 | INFO     | [Api.api:get_best_instance:73] | instances_metrics: {'prefill_001': {'prealloc_queue': 0, 'infight_queue': 0, 'weighted_load': 0}, 'prefill_002': {'prealloc_queue': 0, 'infight_queue': 0, 'weighted_load': 0}, 'prefill_003': {'prealloc_queue': 0, 'infight_queue': 0, 'weighted_load': 0}}
+2025-12-05 02:34:50.236 | INFO     | [Sentry_manager.Sentry:_ping:58] | [Heartbeat] http://127.0.0.1:9992/v1/health FAILED ❌: Failed to perform, curl: (7) Failed to connect to 127.0.0.1 port 9992 after 0 ms: Could not connect to server. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2025-12-05 02:35:05.950 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:4 freeze_finish_version:1
+2025-12-05 02:39:25.653 | INFO     | [utils.logger:setup_logger:52] | Logger initialized -> level=INFO, dir=./logs, rotation=200 MB, retention=30 days
+2025-12-05 02:39:25.653 | INFO     | [__main__:main:21] | ==== Nexuts Service Starting ====
+2025-12-05 02:39:25.654 | INFO     | [nexuts:__init__:20] | Nexuts Config : {'snapshot_dir': '/data/nexuts/snapshot_dir', 'snapshot_interval_seconds': 30, 'WalManager_dir': '/data/nexuts/wal_dir', 'db_path': '/data/info_center.db', 'sentry_heartbeat_cycle': 5, 'resume': 1, 'load_balancing_weights': {'prealloc': 0.3, 'inflight': 0.7}}
+2025-12-05 02:39:25.655 | INFO     | [persistence.snap_manager:load_snapshot:181] | Loading snapshot snapshot_data [{'id': 0, 'key': None, 'value': None, 'decode_string': None, 'children': [], 'version': 0}]
+2025-12-05 02:39:25.657 | INFO     | [nexuts:_recover_from_db:265] | [Recovery] 恢复了 1 个 sentry 节点
+2025-12-05 02:39:25.660 | INFO     | [Sentry_manager.Sentry:_ping:58] | [Heartbeat] http://127.0.0.1:9992/v1/health FAILED ❌: Failed to perform, curl: (7) Failed to connect to 127.0.0.1 port 9992 after 0 ms: Could not connect to server. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2025-12-05 02:39:36.917 | INFO     | [nexuts:register_instance:207] | [Register] sentry=test_sentry, instance=prefill_001, type=prefill 注册成功
+2025-12-05 02:39:36.921 | INFO     | [nexuts:register_instance:207] | [Register] sentry=test_sentry, instance=prefill_002, type=prefill 注册成功
+2025-12-05 02:39:36.924 | INFO     | [nexuts:register_instance:207] | [Register] sentry=test_sentry, instance=prefill_003, type=prefill 注册成功
+2025-12-05 02:39:38.926 | INFO     | [Api.api:get_best_instance:72] | instances_status: {'prefill_001': True, 'prefill_002': True, 'prefill_003': True}
+2025-12-05 02:39:38.926 | INFO     | [Api.api:get_best_instance:73] | instances_metrics: {'prefill_001': {'prealloc_queue': 0, 'infight_queue': 0, 'weighted_load': 0}, 'prefill_002': {'prealloc_queue': 0, 'infight_queue': 0, 'weighted_load': 0}, 'prefill_003': {'prealloc_queue': 0, 'infight_queue': 0, 'weighted_load': 0}}
+2025-12-05 02:39:38.948 | INFO     | [Api.api:get_best_instance:72] | instances_status: {'prefill_001': True, 'prefill_002': True, 'prefill_003': True}
+2025-12-05 02:39:38.949 | INFO     | [Api.api:get_best_instance:73] | instances_metrics: {'prefill_001': {'prealloc_queue': 4.0, 'infight_queue': 5.0, 'weighted_load': 4.7}, 'prefill_002': {'prealloc_queue': 3.0, 'infight_queue': 4.0, 'weighted_load': 3.6999999999999997}, 'prefill_003': {'prealloc_queue': 6.0, 'infight_queue': 4.0, 'weighted_load': 4.6}}
+2025-12-05 02:39:41.917 | INFO     | [Sentry_manager.Sentry:_ping:58] | [Heartbeat] http://127.0.0.1:9992/v1/health FAILED ❌: Failed to perform, curl: (7) Failed to connect to 127.0.0.1 port 9992 after 0 ms: Could not connect to server. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2025-12-05 02:39:55.655 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:4 freeze_finish_version:1
+2025-12-05 02:46:19.147 | INFO     | [utils.logger:setup_logger:52] | Logger initialized -> level=INFO, dir=./logs, rotation=200 MB, retention=30 days
+2025-12-05 02:46:19.147 | INFO     | [__main__:main:21] | ==== Nexuts Service Starting ====
+2025-12-05 02:46:19.148 | INFO     | [nexuts:__init__:20] | Nexuts Config : {'snapshot_dir': '/data/nexuts/snapshot_dir', 'snapshot_interval_seconds': 30, 'WalManager_dir': '/data/nexuts/wal_dir', 'db_path': '/data/info_center.db', 'sentry_heartbeat_cycle': 5, 'resume': 1, 'load_balancing_weights': {'prealloc': 0.3, 'inflight': 0.7}}
+2025-12-05 02:46:19.149 | INFO     | [persistence.snap_manager:load_snapshot:181] | Loading snapshot snapshot_data [{'id': 0, 'key': None, 'value': None, 'decode_string': None, 'children': [], 'version': 0}]
+2025-12-05 02:46:19.151 | INFO     | [nexuts:_recover_from_db:265] | [Recovery] 恢复了 1 个 sentry 节点
+2025-12-05 02:46:19.155 | INFO     | [Sentry_manager.Sentry:_ping:58] | [Heartbeat] http://127.0.0.1:9992/v1/health FAILED ❌: Failed to perform, curl: (7) Failed to connect to 127.0.0.1 port 9992 after 0 ms: Could not connect to server. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2025-12-05 02:46:30.587 | INFO     | [nexuts:register_instance:207] | [Register] sentry=test_sentry, instance=prefill_001, type=prefill 注册成功
+2025-12-05 02:46:30.591 | INFO     | [nexuts:register_instance:207] | [Register] sentry=test_sentry, instance=prefill_002, type=prefill 注册成功
+2025-12-05 02:46:30.594 | INFO     | [nexuts:register_instance:207] | [Register] sentry=test_sentry, instance=prefill_003, type=prefill 注册成功
+2025-12-05 02:46:32.596 | INFO     | [Api.api:get_best_instance:76] | instances_status: {'prefill_001': True, 'prefill_002': True, 'prefill_003': True}
+2025-12-05 02:46:32.597 | INFO     | [Api.api:get_best_instance:77] | instances_metrics: {}
+2025-12-05 02:46:32.619 | INFO     | [Api.api:get_best_instance:76] | instances_status: {'prefill_001': True, 'prefill_002': True, 'prefill_003': True}
+2025-12-05 02:46:32.620 | INFO     | [Api.api:get_best_instance:77] | instances_metrics: {}
+2025-12-05 02:46:35.587 | INFO     | [Sentry_manager.Sentry:_ping:58] | [Heartbeat] http://127.0.0.1:9992/v1/health FAILED ❌: Failed to perform, curl: (7) Failed to connect to 127.0.0.1 port 9992 after 0 ms: Could not connect to server. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2025-12-05 02:46:49.149 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:4 freeze_finish_version:1
+2025-12-05 02:47:38.781 | INFO     | [utils.logger:setup_logger:52] | Logger initialized -> level=INFO, dir=./logs, rotation=200 MB, retention=30 days
+2025-12-05 02:47:38.782 | INFO     | [__main__:main:21] | ==== Nexuts Service Starting ====
+2025-12-05 02:47:38.783 | INFO     | [nexuts:__init__:20] | Nexuts Config : {'snapshot_dir': '/data/nexuts/snapshot_dir', 'snapshot_interval_seconds': 30, 'WalManager_dir': '/data/nexuts/wal_dir', 'db_path': '/data/info_center.db', 'sentry_heartbeat_cycle': 5, 'resume': 1, 'load_balancing_weights': {'prealloc': 0.3, 'inflight': 0.7}}
+2025-12-05 02:47:38.784 | INFO     | [persistence.snap_manager:load_snapshot:181] | Loading snapshot snapshot_data [{'id': 0, 'key': None, 'value': None, 'decode_string': None, 'children': [], 'version': 0}]
+2025-12-05 02:47:38.786 | INFO     | [nexuts:_recover_from_db:265] | [Recovery] 恢复了 1 个 sentry 节点
+2025-12-05 02:47:38.791 | INFO     | [Sentry_manager.Sentry:_ping:58] | [Heartbeat] http://127.0.0.1:9992/v1/health FAILED ❌: Failed to perform, curl: (7) Failed to connect to 127.0.0.1 port 9992 after 0 ms: Could not connect to server. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2025-12-05 02:47:50.799 | INFO     | [nexuts:register_instance:207] | [Register] sentry=test_sentry, instance=prefill_001, type=prefill 注册成功
+2025-12-05 02:47:50.803 | INFO     | [nexuts:register_instance:207] | [Register] sentry=test_sentry, instance=prefill_002, type=prefill 注册成功
+2025-12-05 02:47:50.806 | INFO     | [nexuts:register_instance:207] | [Register] sentry=test_sentry, instance=prefill_003, type=prefill 注册成功
+2025-12-05 02:47:52.808 | INFO     | [Api.api:get_best_instance:72] | instances_status: {'prefill_001': True, 'prefill_002': True, 'prefill_003': True}
+2025-12-05 02:47:52.808 | INFO     | [Api.api:get_best_instance:73] | instances_metrics: {'prefill_001': {'prealloc_queue': 0, 'infight_queue': 0, 'weighted_load': 0}, 'prefill_002': {'prealloc_queue': 0, 'infight_queue': 0, 'weighted_load': 0}, 'prefill_003': {'prealloc_queue': 0, 'infight_queue': 0, 'weighted_load': 0}}
+2025-12-05 02:47:52.830 | INFO     | [Api.api:get_best_instance:72] | instances_status: {'prefill_001': True, 'prefill_002': True, 'prefill_003': True}
+2025-12-05 02:47:52.831 | INFO     | [Api.api:get_best_instance:73] | instances_metrics: {'prefill_001': {'prealloc_queue': 5.0, 'infight_queue': 4.0, 'weighted_load': 4.3}, 'prefill_002': {'prealloc_queue': 9.0, 'infight_queue': 0.0, 'weighted_load': 2.6999999999999997}, 'prefill_003': {'prealloc_queue': 0.0, 'infight_queue': 3.0, 'weighted_load': 2.0999999999999996}}
+2025-12-05 02:47:55.798 | INFO     | [Sentry_manager.Sentry:_ping:58] | [Heartbeat] http://127.0.0.1:9992/v1/health FAILED ❌: Failed to perform, curl: (7) Failed to connect to 127.0.0.1 port 9992 after 0 ms: Could not connect to server. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2025-12-05 02:48:08.784 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:4 freeze_finish_version:1
+2025-12-05 02:52:13.016 | INFO     | [utils.logger:setup_logger:52] | Logger initialized -> level=INFO, dir=./logs, rotation=200 MB, retention=30 days
+2025-12-05 02:52:13.016 | INFO     | [__main__:main:21] | ==== Nexuts Service Starting ====
+2025-12-05 02:52:13.017 | INFO     | [nexuts:__init__:20] | Nexuts Config : {'snapshot_dir': '/data/nexuts/snapshot_dir', 'snapshot_interval_seconds': 30, 'WalManager_dir': '/data/nexuts/wal_dir', 'db_path': '/data/info_center.db', 'sentry_heartbeat_cycle': 5, 'resume': 1, 'load_balancing_weights': {'prealloc': 0.3, 'inflight': 0.7}}
+2025-12-05 02:52:13.018 | INFO     | [persistence.snap_manager:load_snapshot:181] | Loading snapshot snapshot_data [{'id': 0, 'key': None, 'value': None, 'decode_string': None, 'children': [], 'version': 0}]
+2025-12-05 02:52:13.019 | INFO     | [nexuts:_recover_from_db:265] | [Recovery] 恢复了 1 个 sentry 节点
+2025-12-05 02:52:13.023 | INFO     | [Sentry_manager.Sentry:_ping:58] | [Heartbeat] http://127.0.0.1:9992/v1/health FAILED ❌: Failed to perform, curl: (7) Failed to connect to 127.0.0.1 port 9992 after 0 ms: Could not connect to server. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2025-12-05 02:52:22.569 | INFO     | [nexuts:register_instance:207] | [Register] sentry=test_sentry, instance=prefill_001, type=prefill 注册成功
+2025-12-05 02:52:22.573 | INFO     | [nexuts:register_instance:207] | [Register] sentry=test_sentry, instance=prefill_002, type=prefill 注册成功
+2025-12-05 02:52:22.576 | INFO     | [nexuts:register_instance:207] | [Register] sentry=test_sentry, instance=prefill_003, type=prefill 注册成功
+2025-12-05 02:52:24.578 | INFO     | [Api.api:get_best_instance:76] | instances_status: {'prefill_001': True, 'prefill_002': True, 'prefill_003': True}
+2025-12-05 02:52:24.579 | INFO     | [Api.api:get_best_instance:77] | instances_metrics: {}
+2025-12-05 02:52:24.601 | INFO     | [Api.api:get_best_instance:76] | instances_status: {'prefill_001': True, 'prefill_002': True, 'prefill_003': True}
+2025-12-05 02:52:24.601 | INFO     | [Api.api:get_best_instance:77] | instances_metrics: {}
+2025-12-05 02:52:27.570 | INFO     | [Sentry_manager.Sentry:_ping:58] | [Heartbeat] http://127.0.0.1:9992/v1/health FAILED ❌: Failed to perform, curl: (7) Failed to connect to 127.0.0.1 port 9992 after 0 ms: Could not connect to server. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2025-12-05 02:52:43.018 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:4 freeze_finish_version:1
+2025-12-05 02:55:39.975 | INFO     | [utils.logger:setup_logger:52] | Logger initialized -> level=INFO, dir=./logs, rotation=200 MB, retention=30 days
+2025-12-05 02:55:39.975 | INFO     | [__main__:main:21] | ==== Nexuts Service Starting ====
+2025-12-05 02:55:39.977 | INFO     | [nexuts:__init__:20] | Nexuts Config : {'snapshot_dir': '/data/nexuts/snapshot_dir', 'snapshot_interval_seconds': 30, 'WalManager_dir': '/data/nexuts/wal_dir', 'db_path': '/data/info_center.db', 'sentry_heartbeat_cycle': 5, 'resume': 1, 'load_balancing_weights': {'prealloc': 0.3, 'inflight': 0.7}}
+2025-12-05 02:55:39.978 | INFO     | [persistence.snap_manager:load_snapshot:181] | Loading snapshot snapshot_data [{'id': 0, 'key': None, 'value': None, 'decode_string': None, 'children': [], 'version': 0}]
+2025-12-05 02:55:39.979 | INFO     | [nexuts:_recover_from_db:262] | [Recovery] 恢复了 1 个 sentry 节点
+2025-12-05 02:55:39.983 | INFO     | [Sentry_manager.Sentry:_ping:58] | [Heartbeat] http://127.0.0.1:9992/v1/health FAILED ❌: Failed to perform, curl: (7) Failed to connect to 127.0.0.1 port 9992 after 0 ms: Could not connect to server. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2025-12-05 02:55:49.352 | INFO     | [nexuts:register_instance:204] | [Register] sentry=test_sentry, instance=prefill_001, type=prefill 注册成功
+2025-12-05 02:55:49.356 | INFO     | [nexuts:register_instance:204] | [Register] sentry=test_sentry, instance=prefill_002, type=prefill 注册成功
+2025-12-05 02:55:49.359 | INFO     | [nexuts:register_instance:204] | [Register] sentry=test_sentry, instance=prefill_003, type=prefill 注册成功
+2025-12-05 02:55:51.362 | INFO     | [Api.api:get_best_instance:76] | instances_status: {'prefill_001': True, 'prefill_002': True, 'prefill_003': True}
+2025-12-05 02:55:51.362 | INFO     | [Api.api:get_best_instance:77] | instances_metrics: {}
+2025-12-05 02:55:51.385 | INFO     | [Api.api:get_best_instance:76] | instances_status: {'prefill_001': True, 'prefill_002': True, 'prefill_003': True}
+2025-12-05 02:55:51.385 | INFO     | [Api.api:get_best_instance:77] | instances_metrics: {}
+2025-12-05 02:55:54.353 | INFO     | [Sentry_manager.Sentry:_ping:58] | [Heartbeat] http://127.0.0.1:9992/v1/health FAILED ❌: Failed to perform, curl: (7) Failed to connect to 127.0.0.1 port 9992 after 0 ms: Could not connect to server. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2025-12-05 02:56:09.978 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:4 freeze_finish_version:1
+2025-12-05 02:56:16.970 | INFO     | [utils.logger:setup_logger:52] | Logger initialized -> level=INFO, dir=./logs, rotation=200 MB, retention=30 days
+2025-12-05 02:56:16.970 | INFO     | [__main__:main:21] | ==== Nexuts Service Starting ====
+2025-12-05 02:56:16.971 | INFO     | [nexuts:__init__:20] | Nexuts Config : {'snapshot_dir': '/data/nexuts/snapshot_dir', 'snapshot_interval_seconds': 30, 'WalManager_dir': '/data/nexuts/wal_dir', 'db_path': '/data/info_center.db', 'sentry_heartbeat_cycle': 5, 'resume': 1, 'load_balancing_weights': {'prealloc': 0.3, 'inflight': 0.7}}
+2025-12-05 02:56:16.972 | INFO     | [persistence.snap_manager:load_snapshot:181] | Loading snapshot snapshot_data [{'id': 0, 'key': None, 'value': None, 'decode_string': None, 'children': [], 'version': 0}]
+2025-12-05 02:56:16.974 | INFO     | [nexuts:_recover_from_db:262] | [Recovery] 恢复了 1 个 sentry 节点
+2025-12-05 02:56:16.978 | INFO     | [Sentry_manager.Sentry:_ping:58] | [Heartbeat] http://127.0.0.1:9992/v1/health FAILED ❌: Failed to perform, curl: (7) Failed to connect to 127.0.0.1 port 9992 after 0 ms: Could not connect to server. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2025-12-05 02:56:28.231 | INFO     | [nexuts:register_instance:204] | [Register] sentry=test_sentry, instance=prefill_001, type=prefill 注册成功
+2025-12-05 02:56:28.235 | INFO     | [nexuts:register_instance:204] | [Register] sentry=test_sentry, instance=prefill_002, type=prefill 注册成功
+2025-12-05 02:56:28.238 | INFO     | [nexuts:register_instance:204] | [Register] sentry=test_sentry, instance=prefill_003, type=prefill 注册成功
+2025-12-05 02:56:30.241 | INFO     | [Api.api:get_best_instance:72] | instances_status: {'prefill_001': True, 'prefill_002': True, 'prefill_003': True}
+2025-12-05 02:56:30.241 | INFO     | [Api.api:get_best_instance:73] | instances_metrics: {'prefill_001': {'prealloc_queue': 0, 'infight_queue': 0, 'weighted_load': 0}, 'prefill_002': {'prealloc_queue': 0, 'infight_queue': 0, 'weighted_load': 0}, 'prefill_003': {'prealloc_queue': 0, 'infight_queue': 0, 'weighted_load': 0}}
+2025-12-05 02:56:30.263 | INFO     | [Api.api:get_best_instance:72] | instances_status: {'prefill_001': True, 'prefill_002': True, 'prefill_003': True}
+2025-12-05 02:56:30.263 | INFO     | [Api.api:get_best_instance:73] | instances_metrics: {'prefill_001': {'prealloc_queue': 8.0, 'infight_queue': 4.0, 'weighted_load': 5.199999999999999}, 'prefill_002': {'prealloc_queue': 4.0, 'infight_queue': 5.0, 'weighted_load': 4.7}, 'prefill_003': {'prealloc_queue': 4.0, 'infight_queue': 4.0, 'weighted_load': 4.0}}
+2025-12-05 02:56:33.232 | INFO     | [Sentry_manager.Sentry:_ping:58] | [Heartbeat] http://127.0.0.1:9992/v1/health FAILED ❌: Failed to perform, curl: (7) Failed to connect to 127.0.0.1 port 9992 after 0 ms: Could not connect to server. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2025-12-05 02:56:46.973 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:4 freeze_finish_version:1
+2025-12-05 03:01:58.918 | INFO     | [utils.logger:setup_logger:52] | Logger initialized -> level=INFO, dir=./logs, rotation=200 MB, retention=30 days
+2025-12-05 03:01:58.918 | INFO     | [__main__:main:21] | ==== Nexuts Service Starting ====
+2025-12-05 03:01:58.919 | INFO     | [nexuts:__init__:20] | Nexuts Config : {'snapshot_dir': '/data/nexuts/snapshot_dir', 'snapshot_interval_seconds': 30, 'WalManager_dir': '/data/nexuts/wal_dir', 'db_path': '/data/info_center.db', 'sentry_heartbeat_cycle': 5, 'resume': 1, 'load_balancing_weights': {'prealloc': 0.3, 'inflight': 0.7}}
+2025-12-05 03:01:58.920 | INFO     | [persistence.snap_manager:load_snapshot:181] | Loading snapshot snapshot_data [{'id': 0, 'key': None, 'value': None, 'decode_string': None, 'children': [], 'version': 0}]
+2025-12-05 03:01:58.922 | INFO     | [nexuts:_recover_from_db:262] | [Recovery] 恢复了 1 个 sentry 节点
+2025-12-05 03:01:58.926 | INFO     | [Sentry_manager.Sentry:_ping:58] | [Heartbeat] http://127.0.0.1:9992/v1/health FAILED ❌: Failed to perform, curl: (7) Failed to connect to 127.0.0.1 port 9992 after 0 ms: Could not connect to server. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2025-12-05 03:02:08.416 | INFO     | [nexuts:register_instance:204] | [Register] sentry=test_sentry, instance=prefill_001, type=prefill 注册成功
+2025-12-05 03:02:08.420 | INFO     | [nexuts:register_instance:204] | [Register] sentry=test_sentry, instance=prefill_002, type=prefill 注册成功
+2025-12-05 03:02:08.424 | INFO     | [nexuts:register_instance:204] | [Register] sentry=test_sentry, instance=prefill_003, type=prefill 注册成功
+2025-12-05 03:02:10.446 | INFO     | [Api.api:get_best_instance:97] | instances_status: {'prefill_001': True, 'prefill_002': True, 'prefill_003': True}
+2025-12-05 03:02:10.447 | INFO     | [Api.api:get_best_instance:98] | instances_metrics: {'prefill_001': {'prealloc_queue': 3.0, 'infight_queue': 2.0, 'weighted_load': 2.3}, 'prefill_002': {'prealloc_queue': 10.0, 'infight_queue': 5.0, 'weighted_load': 6.5}, 'prefill_003': {'prealloc_queue': 2.0, 'infight_queue': 5.0, 'weighted_load': 4.1}}
+2025-12-05 03:02:10.452 | INFO     | [Api.api:get_best_instance:97] | instances_status: {'prefill_001': True, 'prefill_002': True, 'prefill_003': True}
+2025-12-05 03:02:10.452 | INFO     | [Api.api:get_best_instance:98] | instances_metrics: {'prefill_001': {'prealloc_queue': 10.0, 'infight_queue': 5.0, 'weighted_load': 6.5}, 'prefill_002': {'prealloc_queue': 3.0, 'infight_queue': 3.0, 'weighted_load': 2.9999999999999996}, 'prefill_003': {'prealloc_queue': 8.0, 'infight_queue': 5.0, 'weighted_load': 5.9}}
+2025-12-05 03:02:13.415 | INFO     | [Sentry_manager.Sentry:_ping:58] | [Heartbeat] http://127.0.0.1:9992/v1/health FAILED ❌: Failed to perform, curl: (7) Failed to connect to 127.0.0.1 port 9992 after 0 ms: Could not connect to server. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2025-12-05 03:02:28.920 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:4 freeze_finish_version:1
+2025-12-05 05:04:36.550 | INFO     | [utils.logger:setup_logger:52] | Logger initialized -> level=INFO, dir=./logs, rotation=200 MB, retention=30 days
+2025-12-05 05:04:36.550 | INFO     | [__main__:main:21] | ==== Nexuts Service Starting ====
+2025-12-05 05:04:36.552 | INFO     | [nexuts:__init__:20] | Nexuts Config : {'snapshot_dir': '/data/nexuts/snapshot_dir', 'snapshot_interval_seconds': 30, 'WalManager_dir': '/data/nexuts/wal_dir', 'db_path': '/data/info_center.db', 'sentry_heartbeat_cycle': 5, 'resume': 1, 'load_balancing_weights': {'prealloc': 0.3, 'inflight': 0.7}}
+2025-12-05 05:04:36.552 | INFO     | [persistence.snap_manager:load_snapshot:181] | Loading snapshot snapshot_data [{'id': 0, 'key': None, 'value': None, 'decode_string': None, 'children': [], 'version': 0}]
+2025-12-05 05:04:36.554 | INFO     | [nexuts:_recover_from_db:262] | [Recovery] 恢复了 1 个 sentry 节点
+2025-12-05 05:04:36.558 | INFO     | [Sentry_manager.Sentry:_ping:58] | [Heartbeat] http://127.0.0.1:9992/v1/health FAILED ❌: Failed to perform, curl: (7) Failed to connect to 127.0.0.1 port 9992 after 0 ms: Could not connect to server. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2025-12-05 05:04:48.401 | INFO     | [nexuts:register_instance:204] | [Register] sentry=test_sentry, instance=prefill_001, type=prefill 注册成功
+2025-12-05 05:04:48.405 | INFO     | [nexuts:register_instance:204] | [Register] sentry=test_sentry, instance=prefill_002, type=prefill 注册成功
+2025-12-05 05:04:48.408 | INFO     | [nexuts:register_instance:204] | [Register] sentry=test_sentry, instance=prefill_003, type=prefill 注册成功
+2025-12-05 05:04:50.432 | INFO     | [Api.api:get_best_instance:97] | instances_status: {'prefill_001': True, 'prefill_002': True, 'prefill_003': True}
+2025-12-05 05:04:50.432 | INFO     | [Api.api:get_best_instance:98] | instances_metrics: {'prefill_001': {'prealloc_queue': 9.0, 'infight_queue': 0.0, 'weighted_load': 2.6999999999999997}, 'prefill_002': {'prealloc_queue': 0.0, 'infight_queue': 0.0, 'weighted_load': 0.0}, 'prefill_003': {'prealloc_queue': 0.0, 'infight_queue': 1.0, 'weighted_load': 0.7}}
+2025-12-05 05:04:50.437 | INFO     | [Api.api:get_best_instance:97] | instances_status: {'prefill_001': True, 'prefill_002': True, 'prefill_003': True}
+2025-12-05 05:04:50.437 | INFO     | [Api.api:get_best_instance:98] | instances_metrics: {'prefill_001': {'prealloc_queue': 9.0, 'infight_queue': 4.0, 'weighted_load': 5.5}, 'prefill_002': {'prealloc_queue': 9.0, 'infight_queue': 4.0, 'weighted_load': 5.5}, 'prefill_003': {'prealloc_queue': 9.0, 'infight_queue': 0.0, 'weighted_load': 2.6999999999999997}}
+2025-12-05 05:04:53.402 | INFO     | [Sentry_manager.Sentry:_ping:58] | [Heartbeat] http://127.0.0.1:9992/v1/health FAILED ❌: Failed to perform, curl: (7) Failed to connect to 127.0.0.1 port 9992 after 0 ms: Could not connect to server. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2025-12-05 05:05:06.553 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:4 freeze_finish_version:1
+2025-12-05 05:58:27.669 | INFO     | [utils.logger:setup_logger:52] | Logger initialized -> level=INFO, dir=./logs, rotation=200 MB, retention=30 days
+2025-12-05 05:58:27.669 | INFO     | [__main__:main:21] | ==== Nexuts Service Starting ====
+2025-12-05 05:58:27.670 | INFO     | [nexuts:__init__:20] | Nexuts Config : {'snapshot_dir': '/data/nexuts/snapshot_dir', 'snapshot_interval_seconds': 30, 'WalManager_dir': '/data/nexuts/wal_dir', 'db_path': '/data/info_center.db', 'sentry_heartbeat_cycle': 5, 'resume': 1, 'load_balancing_weights': {'prealloc': 0.3, 'inflight': 0.7}}
+2025-12-05 05:58:27.671 | INFO     | [persistence.snap_manager:load_snapshot:181] | Loading snapshot snapshot_data [{'id': 0, 'key': None, 'value': None, 'decode_string': None, 'children': [], 'version': 0}]
+2025-12-05 05:58:27.673 | INFO     | [nexuts:_recover_from_db:262] | [Recovery] 恢复了 1 个 sentry 节点
+2025-12-05 05:58:57.672 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:4 freeze_finish_version:1
+2025-12-05 06:05:40.234 | INFO     | [nexuts:register_instance:204] | [Register] sentry=104369026, instance=test_prefill_001, type=prefill 注册成功
+2025-12-05 06:05:55.092 | INFO     | [nexuts:register_instance:204] | [Register] sentry=104369026, instance=test_prefill_001, type=prefill 注册成功
+2025-12-05 06:06:58.316 | INFO     | [utils.logger:setup_logger:52] | Logger initialized -> level=INFO, dir=./logs, rotation=200 MB, retention=30 days
+2025-12-05 06:06:58.316 | INFO     | [__main__:main:21] | ==== Nexuts Service Starting ====
+2025-12-05 06:06:58.317 | INFO     | [nexuts:__init__:20] | Nexuts Config : {'snapshot_dir': '/data/nexuts/snapshot_dir', 'snapshot_interval_seconds': 30, 'WalManager_dir': '/data/nexuts/wal_dir', 'db_path': '/data/info_center.db', 'sentry_heartbeat_cycle': 5, 'resume': 1, 'load_balancing_weights': {'prealloc': 0.3, 'inflight': 0.7}}
+2025-12-05 06:06:58.318 | INFO     | [persistence.snap_manager:load_snapshot:181] | Loading snapshot snapshot_data [{'id': 0, 'key': None, 'value': None, 'decode_string': None, 'children': [], 'version': 0}]
+2025-12-05 06:06:58.320 | INFO     | [nexuts:_recover_from_db:262] | [Recovery] 恢复了 2 个 sentry 节点
+2025-12-05 06:07:28.318 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:4 freeze_finish_version:1
+2025-12-05 06:07:45.502 | INFO     | [nexuts:register_instance:204] | [Register] sentry=104369026, instance=test_prefill_instance_001, type=prefill 注册成功
+2025-12-05 06:07:53.824 | INFO     | [nexuts:register_instance:204] | [Register] sentry=104369026, instance=test_prefill_instance_002, type=prefill 注册成功
+2025-12-05 06:10:51.330 | ERROR    | [utils.metrics_collector:get_instance_load:39] | Failed to get metrics from 127.0.0.1:9000: Cannot connect to host 127.0.0.1:9000 ssl:default [Connect call failed ('127.0.0.1', 9000)]
+2025-12-05 06:10:51.331 | WARNING  | [nexuts:get_instance_metrics:104] | Failed to get metrics from 127.0.0.1:9000
+2025-12-05 06:10:51.332 | ERROR    | [utils.metrics_collector:get_instance_load:39] | Failed to get metrics from 127.0.0.1:9001: Cannot connect to host 127.0.0.1:9001 ssl:default [Connect call failed ('127.0.0.1', 9001)]
+2025-12-05 06:10:51.332 | WARNING  | [nexuts:get_instance_metrics:104] | Failed to get metrics from 127.0.0.1:9001
+2025-12-05 06:10:51.332 | ERROR    | [utils.metrics_collector:get_instance_load:39] | Failed to get metrics from 127.0.0.1:9002: Cannot connect to host 127.0.0.1:9002 ssl:default [Connect call failed ('127.0.0.1', 9002)]
+2025-12-05 06:10:51.332 | WARNING  | [nexuts:get_instance_metrics:104] | Failed to get metrics from 127.0.0.1:9002
+2025-12-05 06:10:51.339 | INFO     | [Api.api:get_best_instance:97] | instances_status: {'prefill_001': True, 'prefill_002': True, 'prefill_003': True, 'test_prefill_001': True, 'test_prefill_instance_001': True, 'test_prefill_instance_002': True}
+2025-12-05 06:10:51.339 | INFO     | [Api.api:get_best_instance:98] | instances_metrics: {'test_prefill_instance_001': {'prealloc_queue': 0.0, 'infight_queue': 0.0, 'weighted_load': 0.0}, 'test_prefill_instance_002': {'prealloc_queue': 0.0, 'infight_queue': 0.0, 'weighted_load': 0.0}, 'test_prefill_001': {'prealloc_queue': 0.0, 'infight_queue': 0.0, 'weighted_load': 0.0}}
+2025-12-05 06:14:22.122 | INFO     | [utils.logger:setup_logger:52] | Logger initialized -> level=INFO, dir=./logs, rotation=200 MB, retention=30 days
+2025-12-05 06:14:22.122 | INFO     | [__main__:main:21] | ==== Nexuts Service Starting ====
+2025-12-05 06:14:22.123 | INFO     | [nexuts:__init__:20] | Nexuts Config : {'snapshot_dir': '/data/nexuts/snapshot_dir', 'snapshot_interval_seconds': 30, 'WalManager_dir': '/data/nexuts/wal_dir', 'db_path': '/data/info_center.db', 'sentry_heartbeat_cycle': 5, 'resume': 1, 'load_balancing_weights': {'prealloc': 0.3, 'inflight': 0.7}}
+2025-12-05 06:14:22.124 | INFO     | [persistence.snap_manager:load_snapshot:173] | No snapshot found at /data/nexuts/snapshot_dir
+2025-12-05 06:14:22.129 | INFO     | [nexuts:_recover_from_db:262] | [Recovery] 恢复了 0 个 sentry 节点
+2025-12-05 06:14:40.609 | INFO     | [nexuts:register_instance:204] | [Register] sentry=104369026, instance=test_prefill_instance_001, type=prefill 注册成功
+2025-12-05 06:14:46.814 | INFO     | [nexuts:register_instance:204] | [Register] sentry=104369026, instance=test_prefill_instance_002, type=prefill 注册成功
+2025-12-05 06:14:52.124 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
+2025-12-05 06:14:52.823 | INFO     | [Api.api:get_best_instance:97] | instances_status: {'test_prefill_instance_001': True, 'test_prefill_instance_002': True}
+2025-12-05 06:14:52.823 | INFO     | [Api.api:get_best_instance:98] | instances_metrics: {'test_prefill_instance_001': {'prealloc_queue': 0.0, 'infight_queue': 0.0, 'weighted_load': 0.0}, 'test_prefill_instance_002': {'prealloc_queue': 0.0, 'infight_queue': 0.0, 'weighted_load': 0.0}}
+2025-12-05 06:15:22.127 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
+2025-12-05 06:15:52.130 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
+2025-12-05 06:16:22.133 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
+2025-12-05 06:16:52.136 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
+2025-12-05 06:17:22.139 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
+2025-12-05 06:17:52.141 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
+2025-12-05 06:18:22.144 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
+2025-12-05 06:18:52.147 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
+2025-12-05 06:19:22.149 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
+2025-12-05 06:19:35.697 | INFO     | [Sentry_manager.Sentry:_ping:58] | [Heartbeat] http://127.0.0.1:9992/v1/health FAILED ❌: Failed to perform, curl: (7) Failed to connect to 127.0.0.1 port 9992 after 0 ms: Could not connect to server. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2025-12-05 06:20:11.436 | INFO     | [utils.logger:setup_logger:52] | Logger initialized -> level=INFO, dir=./logs, rotation=200 MB, retention=30 days
+2025-12-05 06:20:11.437 | INFO     | [__main__:main:21] | ==== Nexuts Service Starting ====
+2025-12-05 06:20:11.438 | INFO     | [nexuts:__init__:20] | Nexuts Config : {'snapshot_dir': '/data/nexuts/snapshot_dir', 'snapshot_interval_seconds': 30, 'WalManager_dir': '/data/nexuts/wal_dir', 'db_path': '/data/info_center.db', 'sentry_heartbeat_cycle': 5, 'resume': 1, 'load_balancing_weights': {'prealloc': 0.3, 'inflight': 0.7}}
+2025-12-05 06:20:11.439 | INFO     | [persistence.snap_manager:load_snapshot:173] | No snapshot found at /data/nexuts/snapshot_dir
+2025-12-05 06:20:11.443 | INFO     | [nexuts:_recover_from_db:262] | [Recovery] 恢复了 0 个 sentry 节点
+2025-12-05 06:20:35.244 | INFO     | [nexuts:register_instance:204] | [Register] sentry=104369026, instance=test_prefill_instance_001, type=prefill 注册成功
+2025-12-05 06:20:41.099 | INFO     | [nexuts:register_instance:204] | [Register] sentry=104369026, instance=test_prefill_instance_002, type=prefill 注册成功
+2025-12-05 06:20:41.439 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
+2025-12-05 06:20:47.452 | INFO     | [Api.api:get_best_instance:97] | instances_status: {'test_prefill_instance_001': True, 'test_prefill_instance_002': True}
+2025-12-05 06:20:47.452 | INFO     | [Api.api:get_best_instance:98] | instances_metrics: {'test_prefill_instance_001': {'prealloc_queue': 0.0, 'infight_queue': 0.0, 'weighted_load': 0.0}, 'test_prefill_instance_002': {'prealloc_queue': 0.0, 'infight_queue': 0.0, 'weighted_load': 0.0}}
+2025-12-05 06:21:11.442 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
+2025-12-05 06:21:41.445 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
+2025-12-05 06:22:13.767 | INFO     | [utils.logger:setup_logger:52] | Logger initialized -> level=INFO, dir=./logs, rotation=200 MB, retention=30 days
+2025-12-05 06:22:13.768 | INFO     | [__main__:main:21] | ==== Nexuts Service Starting ====
+2025-12-05 06:22:13.769 | INFO     | [nexuts:__init__:20] | Nexuts Config : {'snapshot_dir': '/data/nexuts/snapshot_dir', 'snapshot_interval_seconds': 30, 'WalManager_dir': '/data/nexuts/wal_dir', 'db_path': '/data/info_center.db', 'sentry_heartbeat_cycle': 5, 'resume': 1, 'load_balancing_weights': {'prealloc': 0.3, 'inflight': 0.7}}
+2025-12-05 06:22:13.770 | INFO     | [persistence.snap_manager:load_snapshot:173] | No snapshot found at /data/nexuts/snapshot_dir
+2025-12-05 06:22:13.774 | INFO     | [nexuts:_recover_from_db:262] | [Recovery] 恢复了 0 个 sentry 节点
+2025-12-05 06:22:21.079 | INFO     | [nexuts:register_instance:204] | [Register] sentry=104369026, instance=test_prefill_instance_001, type=prefill 注册成功
+2025-12-05 06:22:38.263 | INFO     | [nexuts:register_instance:204] | [Register] sentry=104369026, instance=test_prefill_instance_002, type=prefill 注册成功
+2025-12-05 06:22:43.770 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
+2025-12-05 06:22:43.795 | INFO     | [Api.api:get_best_instance:87] | instances_status: {'test_prefill_instance_001': True, 'test_prefill_instance_002': True}
+2025-12-05 06:22:43.795 | INFO     | [Api.api:get_best_instance:88] | instances_metrics: {'test_prefill_instance_001': {'prealloc_queue': 0.0, 'infight_queue': 0.0, 'weighted_load': 0.0}, 'test_prefill_instance_002': {'prealloc_queue': 0, 'infight_queue': 0, 'weighted_load': 0}}
+2025-12-05 06:22:43.798 | INFO     | [Api.api:get_best_instance:87] | instances_status: {'test_prefill_instance_001': True, 'test_prefill_instance_002': True}
+2025-12-05 06:22:43.798 | INFO     | [Api.api:get_best_instance:88] | instances_metrics: {'test_prefill_instance_001': {'prealloc_queue': 0.0, 'infight_queue': 0.0, 'weighted_load': 0.0}, 'test_prefill_instance_002': {'prealloc_queue': 0.0, 'infight_queue': 0.0, 'weighted_load': 0.0}}
+2025-12-05 06:23:13.773 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
+2025-12-05 06:23:43.776 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
+2025-12-05 06:24:13.779 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
+2025-12-05 06:24:43.781 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
+2025-12-05 06:25:13.784 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
+2025-12-05 06:25:43.787 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
+2025-12-05 06:26:13.792 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
+2025-12-05 06:26:43.795 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
+2025-12-05 06:27:13.798 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
+2025-12-05 06:27:43.800 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
+2025-12-05 06:28:13.803 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
+2025-12-05 06:28:43.806 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
+2025-12-05 06:29:13.808 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
+2025-12-05 06:29:43.811 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
+2025-12-05 06:30:13.813 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
+2025-12-05 06:30:43.816 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
+2025-12-05 06:31:13.819 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
+2025-12-05 06:31:43.823 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
+2025-12-05 06:32:13.825 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
+2025-12-05 06:32:43.828 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
+2025-12-05 06:33:13.831 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
+2025-12-05 06:33:43.833 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
+2025-12-05 06:34:13.836 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
+2025-12-05 06:34:43.839 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
+2025-12-05 06:35:13.842 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
+2025-12-05 06:35:43.844 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
+2025-12-05 06:36:13.847 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
+2025-12-05 06:36:43.849 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
+2025-12-05 06:37:13.852 | INFO     | [persistence.snap_manager:take_snapshot:134] | snapshot_trigger_version:0 freeze_finish_version:0
