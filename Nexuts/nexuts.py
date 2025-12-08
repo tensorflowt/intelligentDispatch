@@ -69,18 +69,64 @@ class InformationCenter:
         else:
             self.db.clear_all() # 清除
         # TODO 恢复树从 wal和snapshot里面
-
-    async def get_instance_metrics(self, instance_id: str) -> Optional[Dict[str, float]]:  
-        """获取实例的实时metrics"""  
-        if instance_id not in self.instances_status:  
+ 
+    def is_system_balanced(self, threshold: float = 0.3) -> bool:  
+        """判断系统负载是否均衡"""
+        if not self.instances_metrics:  
+            return True  
+        
+        loads = [m["weighted_load"] for m in self.instances_metrics.values()]  
+        max_load = max(loads)  
+        min_load = min(loads)  
+        
+        # 如果最大负载和最小负载差异小于阈值，认为均衡  
+        return (max_load - min_load) < threshold
+    
+    def find_worker_by_cache(self, prompt_tokens: List[int]) -> Optional[str]:  
+        """基于前缀匹配查找包含缓存的worker"""  
+        # 在 MergePrefixTree 中查找匹配的实例  
+        matched_instances = self.tree.search_instances_with_prefix(prompt_tokens)  
+        
+        if not matched_instances:  
             return None  
+        
+        # 从匹配的实例中选择负载最低的  
+        available_matched = []  
+        for instance_id in matched_instances:  
+            if self.instances_status.get(instance_id, False):  
+                metrics = self.instances_metrics.get(instance_id)  
+                if metrics:  
+                    available_matched.append({  
+                        "instance_id": instance_id,  
+                        "weighted_load": metrics["weighted_load"]  
+                    })  
+        
+        if available_matched:  
+            return min(available_matched, key=lambda x: x["weighted_load"])["instance_id"]  
+        
+        return None
+
+    async def get_instance_metrics(self, instance_id: str) -> Optional[Dict[str, float]]:
+        """
+        获取指定实例的实时metrics信息。
+        
+        通过遍历sentry_instance查找目标实例，如果实例不存在于instances_status中则返回None。
+        
+        Args:
+            instance_id: 实例的唯一标识符
+            
+        Returns:
+                Optional[Dict[str, float]]: 实例的metrics信息字典，如果实例不存在则返回None
+        """
+        if instance_id not in self.instances_status:
+            return None
               
-        # 从sentry_instance中获取实例信息  
-        instance_info = None  
-        for sentry_id, sentry in self.sentry_instance.items():  
-            if instance_id in sentry.prefill_list:  
-                instance_info = sentry.prefill_list[instance_id]  
-                break  
+        # 从sentry_instance中获取实例信息
+        instance_info = None
+        for sentry_id, sentry in self.sentry_instance.items():
+            if instance_id in sentry.prefill_list:
+                instance_info = sentry.prefill_list[instance_id]
+                break
             elif instance_id in sentry.decode_list:  
                 instance_info = sentry.decode_list[instance_id]  
                 break  

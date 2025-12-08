@@ -6,6 +6,8 @@ from Api.request_data import RegisterRequest, UpdateRequest, DeregisterRequest, 
 from utils.utils import load_config
 from utils.logger import logger
 
+from typing import Optional, List, Dict, Any    
+
 
 # 实例化信息中心（全局单例）
 class APIServer:
@@ -65,12 +67,20 @@ class APIServer:
             return JSONResponse({"status": "ok"})
 
         @app.get("/v1/Nexuts/get_best_instance")  
-        async def get_best_instance():  
-            """基于加权metrics获取最佳实例"""  
+        async def get_best_instance(prompt_tokens: Optional[List[int]] = None):  
+            """双重策略路由：缓存感知 + 负载均衡"""  
               
+            # 解析查询参数中的token列表  
+            token_list = None  
+            if prompt_tokens:  
+                try:  
+                    # 将字符串 "100,200,300" 转换为列表 [100, 200, 300]  
+                    token_list = [int(x.strip()) for x in prompt_tokens.split(',')]  
+                except ValueError:  
+                    return {"error": "Invalid prompt_tokens format"}
+        
             # 获取所有可用实例的metrics  
             available_instances = []  
-              
             for instance_id, status in self.info_center.instances_status.items():  
                 if not status:  # 跳过不可用的实例  
                     continue  
@@ -83,29 +93,32 @@ class APIServer:
                         "prealloc_queue": metrics["prealloc_queue"],  
                         "infight_queue": metrics["infight_queue"]  
                     })  
-                    # 添加调试信息  
+                    # 打印实例信息  
                     logger.info(f"instances_status: {self.info_center.instances_status}")  
                     logger.info(f"instances_metrics: {self.info_center.instances_metrics}")  
               
             if not available_instances:  
                 return {"instance_id": None, "message": "No available instances"}  
               
-            # 添加tie-breaking：先按加权负载排序，再按instance_id字典序  
-            best_instance = min(  
-                available_instances,   
-                key=lambda x: (x["weighted_load"], x["instance_id"])  
-            )   
+            # 双重策略决策  
+            if token_list and self.info_center.is_system_balanced():  
+                # 尝试缓存感知路由  
+                cache_worker = self.info_center.find_worker_by_cache(token_list)  
+                if cache_worker:  
+                    return {  
+                        "instance_id": cache_worker,  
+                        "routing_strategy": "cache_aware",  
+                        "load_info": next(m for m in available_instances if m["instance_id"] == cache_worker)  
+                    }  
             
-            # 添加调试信息  
-            # logger.info(f"instances_status: {self.info_center.instances_status}")  
-            # logger.info(f"instances_metrics: {self.info_center.instances_metrics}")  
+            # 回退到负载均衡路由  
+            best_instance = min(  
+                available_instances,  
+                key=lambda x: (x["weighted_load"], x["instance_id"])  
+            )  
             
             return {  
                 "instance_id": best_instance["instance_id"],  
-                "load_info": {  
-                    "weighted_load": best_instance["weighted_load"],  
-                    "prealloc_queue": best_instance["prealloc_queue"],  
-                    "infight_queue": best_instance["infight_queue"],  
-                    "formula": "prealloc_queue * 0.3 + inflight_queue * 0.7"  
-                }  
+                "routing_strategy": "load_balanced",  
+                "load_info": best_instance  
             }

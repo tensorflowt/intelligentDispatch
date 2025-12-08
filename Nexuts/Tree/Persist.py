@@ -653,6 +653,37 @@ class MergePrefixTree:
         while length < max_len and key_list[length] == node_key[length]:
             length += 1
         return length
+    
+    def search_instances_with_prefix(self, key_list: List[int]) -> List[str]:  
+        """搜索包含指定前缀的所有实例ID"""  
+        matched_instances = set()  
+        
+        def dfs_search(node: TreeNode, remaining_key: List[int]):  
+            if not remaining_key:  
+                # 收集该节点及所有子节点的实例  
+                self._collect_instances_from_node(node, matched_instances)  
+                return  
+            
+            first_token = remaining_key[0]  
+            if first_token in node.children:  
+                child = node.children[first_token]  
+                length = self._match_length(remaining_key, child.key)  
+                
+                if length == len(child.key):  
+                    # 完全匹配，继续搜索剩余key  
+                    dfs_search(child, remaining_key[length:])  
+                elif length > 0:  
+                    # 部分匹配，收集该节点的实例  
+                    self._collect_instances_from_node(child, matched_instances)  
+        
+        dfs_search(self.root, key_list)  
+        return list(matched_instances)  
+  
+    def _collect_instances_from_node(self, node: TreeNode, instances: set):  
+        """收集节点及其子节点的所有实例ID"""  
+        instances.update(node.value.keys())  
+        for child in node.children.values():  
+            self._collect_instances_from_node(child, instances)
 
 
 # 服务启动示例（直接运行即可）

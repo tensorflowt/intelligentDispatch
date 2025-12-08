@@ -8,5 +8,10 @@
   "load_balancing_weights": {  
     "prealloc": 0.3,  
     "inflight": 0.7  
+  },
+  "cache_aware_routing": {  
+    "enabled": true,  
+    "balance_threshold": 0.3,  
+    "min_match_length": 4  
   }  
 }
