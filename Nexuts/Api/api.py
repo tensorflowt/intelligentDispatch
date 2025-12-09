@@ -82,9 +82,25 @@ class APIServer:
             # 获取所有可用实例的metrics  
             available_instances = []  
             for instance_id, status in self.info_center.instances_status.items():  
-                if not status:  # 跳过不可用的实例  
+                if not status:  # 跳过不可用的实例
+                    logger.info(f"Skipping unavailable instance: {instance_id}")
                     continue  
                       
+                # 检查实例类型，只处理prefill实例  
+                instance_type = None  
+                for sentry_id, sentry in self.info_center.sentry_instance.items():  
+                    if instance_id in sentry.prefill_list:  
+                        instance_type = "prefill"  
+                        
+                        break  
+                    elif instance_id in sentry.decode_list:  
+                        instance_type = "decode"  
+                        break  
+                
+                # 跳过decode实例  
+                if instance_type != "prefill":  
+                    continue 
+
                 metrics = await self.info_center.get_instance_metrics(instance_id)  
                 if metrics:  
                     available_instances.append({  

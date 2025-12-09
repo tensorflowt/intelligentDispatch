@@ -76,7 +76,16 @@ class InformationCenter:
         if not self.instances_metrics:  
             return True  
         
-        loads = [m["weighted_load"] for m in self.instances_metrics.values()]  
+        # 只收集prefill实例的负载
+        loads = []  
+        for sentry in self.sentry_instance.values():  
+            for instance_id in sentry.prefill_list.keys():  
+                if instance_id in self.instances_metrics:  
+                    loads.append(self.instances_metrics[instance_id]["weighted_load"])  
+        
+        if not loads:  
+            return True  
+        
         max_load = max(loads)  
         min_load = min(loads)  
         
@@ -93,7 +102,17 @@ class InformationCenter:
         
         # 从匹配的实例中选择负载最低的  
         available_matched = []  
-        for instance_id in matched_instances:  
+        for instance_id in matched_instances:
+             # 确保是prefill实例  
+            is_prefill = False  
+            for sentry in self.sentry_instance.values():  
+                if instance_id in sentry.prefill_list:  
+                    is_prefill = True  
+                    break  
+            
+            if not is_prefill:  
+                continue
+
             if self.instances_status.get(instance_id, False):  
                 metrics = self.instances_metrics.get(instance_id)  
                 if metrics:  
@@ -228,7 +247,7 @@ class InformationCenter:
         }
 
         # ---------------- 保存实例 ----------------
-        if data.get("pod_type") == "prefill":
+        if pod_type == "prefill":
             if instance_id not in self.sentry_instance[sentry_id].prefill_list:
                 self.sentry_instance[sentry_id].prefill_list[instance_id] = instance_info
                 self.db.save_instance(sentry_id, instance_info)  # 会覆盖
