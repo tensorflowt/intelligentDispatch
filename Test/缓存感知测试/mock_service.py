@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Request, status
 from fastapi.exceptions import RequestValidationError
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, PlainTextResponse
 from fastapi.encoders import jsonable_encoder
 from pydantic import BaseModel
 from typing import Optional
@@ -75,19 +75,43 @@ async def status_endpoint():
 
 @app.get("/metrics")
 async def metrics():
-    """Prometheus格式的metrics端点"""
-    prealloc = random.uniform(0, 10)
-    inflight = random.uniform(0, 10)
+    """提供Prometheus格式的指标数据"""
+    # 获取配置中的实例类型
+    instance_type = config.instance_type
+    # 构建实例ID
+    instance_id = f"mock_{instance_type}_{config.service_port}"
     
-    metrics_text = f"""# HELP sglang_num_prefill_prealloc_queue_reqs Prefill prealloc queue requests
-# TYPE sglang_num_prefill_prealloc_queue_reqs gauge
-sglang_num_prefill_prealloc_queue_reqs{{instance_id="mock_{config.instance_type}_{config.service_port}",instance_type="{config.instance_type}"}} {prealloc}
+    # 初始化时设置固定的mock负载值
+    mock_load_state = {
+        "prealloc_queue": 5.0,
+        "inflight_queue": 3.0
+    }
+    
+    if instance_type == 'prefill':
+        # Prefill实例使用固定的mock数据
+        metrics_text = f"""  
+# HELP sglang:num_prefill_prealloc_queue_reqs Number of prealloc queue requests  
+# TYPE sglang:num_prefill_prealloc_queue_reqs gauge  
+sglang:num_prefill_prealloc_queue_reqs{{instance_id="{instance_id}"}} {mock_load_state["prealloc_queue"]}  
 
-# HELP sglang_num_prefill_inflight_queue_reqs Prefill inflight queue requests
-# TYPE sglang_num_prefill_inflight_queue_reqs gauge
-sglang_num_prefill_inflight_queue_reqs{{instance_id="mock_{config.instance_type}_{config.service_port}",instance_type="{config.instance_type}"}} {inflight}
+# HELP sglang:num_prefill_inflight_queue_reqs Number of inflight queue requests    
+# TYPE sglang:num_prefill_inflight_queue_reqs gauge  
+sglang:num_prefill_inflight_queue_reqs{{instance_id="{instance_id}"}} {mock_load_state["inflight_queue"]}  
 """
-    return metrics_text
+    else:  # decode
+        # Decode实例保持为0
+        metrics_text = f"""  
+# HELP sglang:num_decode_prealloc_queue_reqs The number of requests in the decode prealloc queue.  
+# TYPE sglang:num_decode_prealloc_queue_reqs gauge  
+sglang:num_decode_prealloc_queue_reqs{{engine_type="unified",model_name="Qwen3-4B",pp_rank="0",tp_rank="0"}} 0.0  
+
+# HELP sglang:num_decode_transfer_queue_reqs The number of requests in the decode transfer queue.  
+# TYPE sglang:num_decode_transfer_queue_reqs gauge  
+sglang:num_decode_transfer_queue_reqs{{engine_type="unified",model_name="Qwen3-4B",pp_rank="0",tp_rank="0"}} 0.0  
+"""
+    
+    # 返回纯文本响应，设置正确的Content-Type
+    return PlainTextResponse(content=metrics_text, media_type="text/plain")
 
 # ---------- 注册逻辑 ----------
 def register_self_with_retry(sentry_port, service_port, instance_type, max_retries=3, retry_delay=2):

@@ -4,6 +4,7 @@ from typing import Dict, Any, Optional
 from collections import defaultdict
 from curl_cffi import requests
 from utils.logger import logger
+from typing import List 
 
 from Tree.tree import MergePrefixTree
 from Sentry_manager.Sentry import Sentry
@@ -126,9 +127,11 @@ class InformationCenter:
         for sentry_id, sentry in self.sentry_instance.items():
             if instance_id in sentry.prefill_list:
                 instance_info = sentry.prefill_list[instance_id]
+                instance_type = "prefill"
                 break
             elif instance_id in sentry.decode_list:  
                 instance_info = sentry.decode_list[instance_id]  
+                instance_type = "decode" 
                 break  
                   
         if not instance_info:  
@@ -140,7 +143,7 @@ class InformationCenter:
         if not service_port:  
             return None  
               
-        metrics = await self.metrics_collector.get_instance_load(instance_ip, service_port)  
+        metrics = await self.metrics_collector.get_instance_load(instance_ip, service_port, instance_type)  
           
         with self.lock_metrics:  
             if metrics:  

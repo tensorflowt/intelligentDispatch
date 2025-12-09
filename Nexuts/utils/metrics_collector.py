@@ -10,8 +10,8 @@ class InstanceMetricsCollector:
         self.prealloc_weight = prealloc_weight  
         self.inflight_weight = inflight_weight  
           
-    async def get_instance_load(self, instance_ip: str, metrics_port: int) -> Optional[Dict[str, float]]:  
-        """获取实例的负载指标"""  
+    async def get_instance_load(self, instance_ip: str, metrics_port: int, instance_type: str = "prefill") -> Optional[Dict[str, float]]:  
+        """获取实例的负载指标，支持 prefill 和 decode 类型"""
         if not self.session:  
             self.session = aiohttp.ClientSession()  
               
@@ -21,9 +21,14 @@ class InstanceMetricsCollector:
             async with self.session.get(url, timeout=2) as resp:  
                 text = await resp.text()  
                   
-            # 解析Prometheus格式的metrics  
-            prealloc_queue = self._extract_metric(text, "sglang:num_prefill_prealloc_queue_reqs")  
-            infight_queue = self._extract_metric(text, "sglang:num_prefill_infight_queue_reqs")  
+            if instance_type == "decode":  
+                # Decode 实例使用不同的指标  
+                prealloc_queue = self._extract_metric(text, "sglang:num_decode_prealloc_queue_reqs")  
+                infight_queue = self._extract_metric(text, "sglang:num_decode_transfer_queue_reqs")  
+            else:  
+                # Prefill 实例使用原有指标  
+                prealloc_queue = self._extract_metric(text, "sglang:num_prefill_prealloc_queue_reqs")  
+                infight_queue = self._extract_metric(text, "sglang:num_prefill_inflight_queue_reqs")  
               
             # 使用加权算法计算总负载  
             weighted_load = (prealloc_queue * self.prealloc_weight +   

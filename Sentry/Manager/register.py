@@ -77,7 +77,7 @@ class Registry:
                 except Exception as e:
                     logger.warning(f"[HealthCheck] ({info['instance_id']}) health check failed: {e}")
                     self.instance_db.delete_instance(info["instance_id"]) # 直接删除，Sentry恢复时，这个实例不在服务
-                    self.call_back_for_loss(instance_id) # 通知push_manager 告知Nexuts 进行删除
+                    self.call_back_for_loss(info["instance_id"]) # 通知push_manager 告知Nexuts 进行删除
 
 
     def register(self, info: Dict[str, Any], write_db=True):

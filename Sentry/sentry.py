@@ -24,8 +24,9 @@ class Sentry:
         sentry_port = args.port
         self.push_manager = PushToNexuts(self.sentry_config, self.sentry_instance_id, sentry_port)
 
-        metrics_server = MetricsHTTPServer(self.push_manager, port=9100) # curl http://localhost:9100/metrics
-        metrics_server.start()
+        # metrics_port = self.sentry_config.get("metrics", {}).get("port", 9100)  
+        # metrics_server = MetricsHTTPServer(self.push_manager, port=metrics_port)
+        # metrics_server.start()
 
         # 注册管理  self.push_manager.add_active_callback 这个是变更的回调函数
         self.register = Registry(instance_db,

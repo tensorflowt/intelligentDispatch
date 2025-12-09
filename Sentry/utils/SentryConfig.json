@@ -2,7 +2,7 @@
   "instance_db_path": "/data/sentry_instances.db",
   "redis": {
     "redis_host": "127.0.0.1",
-    "redis_port": 6380,
+    "redis_port": 6360,
     "redis_db": 0,
     "clear": 1
   },
@@ -16,5 +16,8 @@
     "set_status": "/v1/Nexuts/set_status",
     "post_update": "/v1/Nexuts/update_prefix_tree"
   },
-  "pd_server_health_url": "/v1/pdserver/health"
+  "pd_server_health_url": "/v1/pdserver/health",
+  "metrics": {  
+    "port": 9101  
+  }
 }

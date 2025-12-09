@@ -206,10 +206,28 @@ class PushToNexuts:
             if radix_update_info["op_type"] == "delete_node":
                 data["length"] = radix_update_info.get("split_length")
 
+            # 转换为Nexuts格式
+            nexuts_data = self._prepare_update_for_nexuts(data)  
+
             with self._buffer_lock:
-                self._active_buffer.append(data.copy())
+                self._active_buffer.append(nexuts_data)
         logger.info("add active callback done")
-    # === Collect Loop ===
+    
+    def _prepare_update_for_nexuts(self, update: dict) -> dict:  
+        """准备发送到 Nexuts 的更新数据，转换操作类型和字段名"""  
+        nexuts_update = update.copy()  
+        
+        # 转换操作类型  
+        if nexuts_update.get('op_type') == 'insert_node':  
+            nexuts_update['op_type'] = 'insert_token'  
+            # 映射字段名  
+            if 'prompt' in nexuts_update:  
+                nexuts_update['insert_key'] = nexuts_update.pop('prompt')  
+            if 'prompt_value' in nexuts_update:  
+                nexuts_update['insert_value'] = nexuts_update.pop('prompt_value')  
+        
+        return nexuts_update
+ 
     def _collect_loop(self):
         while not self._stop_event.is_set():
             time.sleep(self.send_nexuts_cycle)
