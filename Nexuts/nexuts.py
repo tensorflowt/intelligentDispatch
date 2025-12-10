@@ -6,7 +6,8 @@ from curl_cffi import requests
 from utils.logger import logger
 from typing import List 
 
-from Tree.tree import MergePrefixTree
+# from Tree.tree import MergePrefixTree
+from Tree.Persist import MergePrefixTree
 from Sentry_manager.Sentry import Sentry
 from persistence.snap_manager import SnapshotManager
 from persistence.walmanager import WalManager
@@ -89,6 +90,8 @@ class InformationCenter:
         max_load = max(loads)  
         min_load = min(loads)  
         
+        logger.info("max_load:{}, min_load:{}, threshold:{}".format(max_load, min_load, threshold))
+
         # 如果最大负载和最小负载差异小于阈值，认为均衡  
         return (max_load - min_load) < threshold
     

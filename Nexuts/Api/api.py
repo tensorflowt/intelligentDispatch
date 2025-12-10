@@ -67,9 +67,10 @@ class APIServer:
             return JSONResponse({"status": "ok"})
 
         @app.get("/v1/Nexuts/get_best_instance")  
-        async def get_best_instance(prompt_tokens: Optional[List[int]] = None):  
+        async def get_best_instance(prompt_tokens: Optional[str] = None):  
             """双重策略路由：缓存感知 + 负载均衡"""  
               
+            logger.info("prompt_tokens:{}".format(prompt_tokens))
             # 解析查询参数中的token列表  
             token_list = None  
             if prompt_tokens:  
@@ -79,6 +80,7 @@ class APIServer:
                 except ValueError:  
                     return {"error": "Invalid prompt_tokens format"}
         
+            logger.info("token_list:{}".format(token_list))
             # 获取所有可用实例的metrics  
             available_instances = []  
             for instance_id, status in self.info_center.instances_status.items():  
@@ -90,14 +92,16 @@ class APIServer:
                 instance_type = None  
                 for sentry_id, sentry in self.info_center.sentry_instance.items():  
                     if instance_id in sentry.prefill_list:  
+                        logger.info(f"instance_id: {instance_id} is prefiler")
                         instance_type = "prefill"  
-                        
                         break  
                     elif instance_id in sentry.decode_list:  
                         instance_type = "decode"  
+                        logger.info(f"instance_id: {instance_id} is decoder")
                         break  
                 
                 # 跳过decode实例  
+                logger.info(f"instance_type: {instance_type}")
                 if instance_type != "prefill":  
                     continue 
 
@@ -110,17 +114,24 @@ class APIServer:
                         "infight_queue": metrics["infight_queue"]  
                     })  
                     # 打印实例信息  
-                    logger.info(f"instances_status: {self.info_center.instances_status}")  
-                    logger.info(f"instances_metrics: {self.info_center.instances_metrics}")  
+                    # logger.info(f"instances_status: {self.info_center.instances_status}")  
+                    # logger.info(f"instances_metrics: {self.info_center.instances_metrics}")  
               
             if not available_instances:  
                 return {"instance_id": None, "message": "No available instances"}  
               
+            logger.info("available_instances:{}".format(available_instances))
             # 双重策略决策  
-            if token_list and self.info_center.is_system_balanced():  
+            logger.info("self.info_center.is_system_balanced():{}".format(self.info_center.is_system_balanced()))
+            logger.info("token_list:{}".format(token_list))
+            if token_list and self.info_center.is_system_balanced():
+                logger.info("1111111111111111111111111")
+                # logger.info("系统负载均衡，进入缓存感知路由")
                 # 尝试缓存感知路由  
                 cache_worker = self.info_center.find_worker_by_cache(token_list)  
+                logger.info("2222222222222222222222222")
                 if cache_worker:  
+                    logger.info("router strategy: cache_aware, cache_worker:{}".format(cache_worker))
                     return {  
                         "instance_id": cache_worker,  
                         "routing_strategy": "cache_aware",  
@@ -130,8 +141,10 @@ class APIServer:
             # 回退到负载均衡路由  
             best_instance = min(  
                 available_instances,  
-                key=lambda x: (x["weighted_load"], x["instance_id"])  
+                key=lambda x: x["weighted_load"] 
             )  
+
+            logger.info("route strategy: load_balanced, best_instance:{}".format(best_instance))
             
             return {  
                 "instance_id": best_instance["instance_id"],  
